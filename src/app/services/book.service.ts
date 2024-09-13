@@ -18,19 +18,29 @@ export class BookService {
   }
 
   getBookById(id: number): Observable<Book> {
-    return this.http.get<Book>('${this.apiUrl}/${id}');
+    return this.http.get<Book>(`${this.apiUrl}/${id}`);
   }
 
-  createBook(book: Book): Observable<Book> {
-    return this.http.post<Book>(this.apiUrl, book);
+  createBook(book: Book, image:File): Observable<Book> {
+    const formData = new FormData();
+    formData.append('book', JSON.stringify(book));
+    formData.append('file', image);
+
+    return this.http.post<Book>(this.apiUrl, formData);
   }
 
   updateBook(book: Book) {
     return this.http.put(this.apiUrl, book);
   }
 
-  DeleteBook(id: number) {
-    return this.http.delete('${this.apiUrl}/${id}');
+  deleteBook(id: number) {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
+
+  updateBookImage(id: number, image:File): Observable<Book> {
+    const formData = new FormData();
+    formData.append('file', image);
+    return this.http.put<Book>(`${this.apiUrl}/${id}/image`, formData);
   }
 
 }
