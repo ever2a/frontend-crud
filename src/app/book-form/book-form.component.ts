@@ -125,7 +125,7 @@ export class BookFormComponent {
           detail: 'Revise los Campos e Intente Nuevamente'
         });
       }
-    })
+    });
   }
 
   changeImage(event: FileSelectEvent) {
@@ -156,7 +156,7 @@ export class BookFormComponent {
           detail: 'Revise el archivo seleccionado'
         });
       }
-    })
+    });
   }
 
   updateBook() {
@@ -187,7 +187,7 @@ export class BookFormComponent {
           detail: 'Revise los Campos e Intente Nuevamente'
         });
       }
-    })
+    });
   }
 
 }

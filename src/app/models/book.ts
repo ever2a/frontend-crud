@@ -6,5 +6,5 @@ export interface Book {
     author: string;
     pages: number;
     price: number;
-    image?: Image
+    image?: Image;
 }

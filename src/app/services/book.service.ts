@@ -21,7 +21,7 @@ export class BookService {
     return this.http.get<Book>(`${this.apiUrl}/${id}`);
   }
 
-  createBook(book: Book, image:File): Observable<Book> {
+  createBook(book: Book, image: File): Observable<Book> {
     const formData = new FormData();
     formData.append('book', new Blob([JSON.stringify(book)], { type: 'application/json' }));
     formData.append('file', image);
@@ -37,7 +37,7 @@ export class BookService {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
-  updateBookImage(id: number, image:File): Observable<Book> {
+  updateBookImage(id: number, image: File): Observable<Book> {
     const formData = new FormData();
     formData.append('file', image);
     return this.http.put<Book>(`${this.apiUrl}/${id}/image`, formData);
