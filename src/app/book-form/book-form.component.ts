@@ -56,7 +56,8 @@ export class BookFormComponent {
       title: ['', Validators.required],
       author: ['', Validators.required],
       pages: [1, [Validators.required, Validators.min(1)]],
-      price: [0, [Validators.required, Validators.min(0)]]
+      price: [0, [Validators.required, Validators.min(0)]],
+      image: [null]
     });
   }
 
@@ -127,7 +128,8 @@ export class BookFormComponent {
     })
   }
 
-  changeImage() {
+  changeImage(event: FileSelectEvent) {
+    this.selectedFile = event.files[0];
     if (!this.selectedFile) {
       this.messageService.add({
         severity: 'error',
